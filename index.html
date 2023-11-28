@@ -12,37 +12,53 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background-color: #f5f5f5;
+      background-color: #ecf0f3; /* Updated background color */
     }
 
     #password-container {
       text-align: center;
-      padding: 20px;
+      padding: 40px; /* Increased padding */
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px; /* Rounded corners for a more modern look */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 800px; /* Increased max-width */
+      width: 90%; /* Centered container width */
     }
 
     #password {
       font-size: 24px;
       margin-bottom: 20px;
+      color: #333; /* Adjusted text color */
+    }
+
+    h1 {
+      color: #3498db; /* Accent color for the heading */
     }
 
     #options-container {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap; /* Allow options to wrap on smaller screens */
+      justify-content: space-around;
       margin-bottom: 20px;
     }
 
     .option {
-      margin-right: 10px;
+      margin-bottom: 10px; /* Improved spacing between options */
+    }
+
+    label {
+      color: #555; /* Slightly muted label color */
+    }
+
+    input[type="number"], input[type="checkbox"] {
+      margin-left: 5px; /* Adjusted spacing for checkboxes and number input */
     }
 
     #generate-button {
       padding: 12px 24px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #3498db;
+      background-color: #27ae60; /* Updated button color */
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -50,12 +66,25 @@
     }
 
     #generate-button:hover {
-      background-color: #2980b9;
+      background-color: #219d53; /* Darker color on hover */
     }
+
+    #lottie-container {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   </style>
 </head>
 <body>
   <div id="password-container">
+    <div id="lottie-container">
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+      <dotlottie-player src="https://lottie.host/55b279c7-a6c0-4b35-bd19-4e3a269cfc3f/mshYVZ8ccE.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></dotlottie-player>
+    </div>
     <h1>Password Generator</h1>
     <div id="options-container">
       <div class="option">
