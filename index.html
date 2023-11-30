@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Meta tags for character set and viewport settings -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title of the page -->
   <title>Password Generator</title>
+  <!-- Styling for the page -->
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -70,69 +74,89 @@
     }
 
     #lottie-container {
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
   </style>
 </head>
+
 <body>
   <div id="password-container">
+    <!-- Lottie animation player for visual appeal -->
     <div id="lottie-container">
-      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
       <dotlottie-player src="https://lottie.host/55b279c7-a6c0-4b35-bd19-4e3a269cfc3f/mshYVZ8ccE.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></dotlottie-player>
     </div>
+    <!-- Heading for the Password Generator -->
     <h1>Password Generator</h1>
+    <!-- Container for password options -->
     <div id="options-container">
+      <!-- Option for password length -->
       <div class="option">
         <label for="length">Length:</label>
         <input type="number" id="length" min="8" max="32" value="12">
       </div>
+      <!-- Option for including uppercase letters -->
       <div class="option">
         <label for="uppercase">Uppercase:</label>
         <input type="checkbox" id="uppercase" checked>
       </div>
+      <!-- Option for including numbers -->
       <div class="option">
         <label for="numbers">Numbers:</label>
         <input type="checkbox" id="numbers" checked>
       </div>
+      <!-- Option for including symbols -->
       <div class="option">
         <label for="symbols">Symbols:</label>
         <input type="checkbox" id="symbols" checked>
       </div>
     </div>
+    <!-- Container to display generated password -->
     <div id="password"></div>
+    <!-- Button to trigger the generatePassword function -->
     <button id="generate-button" onclick="generatePassword()">Generate Password</button>
   </div>
 
+  <!-- JavaScript script for dynamic functionality -->
   <script>
+    // Function to generate a password based on user options
     const generatePassword = () => {
+      // Retrieve user options
       const length = document.getElementById("length").value;
       const useUppercase = document.getElementById("uppercase").checked;
       const useNumbers = document.getElementById("numbers").checked;
       const useSymbols = document.getElementById("symbols").checked;
 
+      // Define character sets
       const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
       const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
       const numberChars = "0123456789";
       const symbolChars = "!@#$%^&*()-=_+[]{}|;':,.<>?/";
 
       let characters = lowercaseChars;
+      // Include uppercase letters if selected
       if (useUppercase) characters += uppercaseChars;
+      // Include numbers if selected
       if (useNumbers) characters += numberChars;
+      // Include symbols if selected
       if (useSymbols) characters += symbolChars;
 
       let password = "";
+      // Generate password randomly from the selected character set
       for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * characters.length);
         password += characters.charAt(randomIndex);
       }
 
+      // Display the generated password
       document.getElementById("password").textContent = password;
     };
   </script>
 </body>
+
 </html>
